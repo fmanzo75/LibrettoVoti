@@ -6,7 +6,10 @@ package it.polito.tdp.librettovoti;
 
 import java.net.URL;
 import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 import java.util.ResourceBundle;
+import java.util.zip.DataFormatException;
+
 import it.polito.tdp.librettovoti.model.Libretto;
 import it.polito.tdp.librettovoti.model.Voto;
 import javafx.event.ActionEvent;
@@ -45,9 +48,26 @@ public class FXMLController {
     		return;
     	}
     	String votoEsame = txtVoto.getText();
-    	int votoInt = Integer.parseInt(votoEsame);
+    	int votoInt = 0;
+    	try {
+    		votoInt = Integer.parseInt(votoEsame);
+		} catch (NumberFormatException e) {
+			txtResoult.appendText("ERRORE: il voto deve essere numerico!");
+			return;
+		}
+    	if(votoInt > 30 || votoInt < 18) {
+			txtResoult.appendText("ERRORE: il voto deve essere compreso tra 18 e 30");
+			return;    		
+    	}
     	String dataEsame = txtData.getText();
-    	LocalDate data = LocalDate.parse(dataEsame);
+    	LocalDate data = null;
+    	try {
+    		data = LocalDate.parse(dataEsame);
+		} catch (DateTimeParseException e) {
+			txtResoult.appendText("ERRORE: data non corretta!");
+			return;  
+		}
+    	
     	// TODO: aggiungere tutti i controlli
     	
     	// esegui l'azione
