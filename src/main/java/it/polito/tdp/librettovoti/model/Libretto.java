@@ -9,6 +9,7 @@ public class Libretto {
 	
 	public Libretto() {
 		this.voti = new ArrayList<>();
+		System.out.println("Sono Libretto e sono vivo!");
 	}
 
 	public void add(Voto v) {
