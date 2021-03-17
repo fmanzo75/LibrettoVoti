@@ -60,9 +60,9 @@ public class FXMLController {
 			txtResoult.appendText("ERRORE: il voto deve essere compreso tra 18 e 30");
 			return;    		
     	}
-    	    	LocalDate data = txtData.getValue();;
+    	    	LocalDate data = txtData.getValue();
     	if(data == null) {
-			txtResoult.appendText("ERRORE: data non corretta!");
+			txtResoult.appendText("ERRORE: la data non può essere vuota");
 			return;  
 		}
     	

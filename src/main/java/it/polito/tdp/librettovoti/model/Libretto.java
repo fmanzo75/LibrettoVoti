@@ -52,6 +52,8 @@ public class Libretto {
 		}
 		return risultato;
 	}
+	
+	// tdp 2021 - L08 minuto 33
 
 	public String toString() {
 		String s = "";
