@@ -14,6 +14,7 @@ import it.polito.tdp.librettovoti.model.Libretto;
 import it.polito.tdp.librettovoti.model.Voto;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
@@ -34,7 +35,7 @@ public class FXMLController {
     private TextField txtVoto; // Value injected by FXMLLoader
 
     @FXML // fx:id="txtData"
-    private TextField txtData; // Value injected by FXMLLoader
+    private DatePicker txtData; // Value injected by FXMLLoader
 
     @FXML // fx:id="txtResoult"
     private TextArea txtResoult; // Value injected by FXMLLoader
@@ -59,11 +60,8 @@ public class FXMLController {
 			txtResoult.appendText("ERRORE: il voto deve essere compreso tra 18 e 30");
 			return;    		
     	}
-    	String dataEsame = txtData.getText();
-    	LocalDate data = null;
-    	try {
-    		data = LocalDate.parse(dataEsame);
-		} catch (DateTimeParseException e) {
+    	    	LocalDate data = txtData.getValue();;
+    	if(data == null) {
 			txtResoult.appendText("ERRORE: data non corretta!");
 			return;  
 		}
@@ -78,7 +76,7 @@ public class FXMLController {
     	txtResoult.setText(model.toString());
     	txtEsame.clear();
     	txtVoto.clear();
-    	txtData.clear();
+    	txtData.setValue(null);
     }
 
     @FXML // This method is called by the FXMLLoader when initialization is complete
