@@ -22,7 +22,11 @@ public class TestLibretto {
 		Libretto venticinque = libretto.votiUguali(25);
 		System.out.println(venticinque);
 		// punto 3
-		System.out.println(libretto.ricercaCorso("Fisica 1"));
+		Voto analisi = libretto.ricercaCorso("Analisi 1");
+		System.out.println(analisi);
+		Voto analisi3 = libretto.ricercaCorso("Analisi 3");
+		System.out.println(analisi3);
+		// tdp 2021 L08 min50
 	}
 
 }
